@@ -239,7 +239,7 @@ nav.light .burger span {
 
 
 #hero {
-    min-height: 100vh;
+    min-height: 80vh;
     background: var(--dark);
     display: grid;
     grid-template-columns: 1fr 1fr;
