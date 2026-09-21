@@ -295,13 +295,14 @@ nav.light .burger span {
     justify-content: center;
     position: relative;
     height: 100%;
+    transform: translateY(-3vh);
 }
 
 .photo-wrap {
     position: relative;
-    width: clamp(240px, 30vw, 400px);
-    height: clamp(340px, 46vw, 560px);
-    margin-bottom: 0px;
+    width: clamp(300px, 36vw, 500px);
+    height: clamp(420px, 54vw, 650px);
+    margin-bottom: 5vh;
 }
 
 .photo-wrap img {
