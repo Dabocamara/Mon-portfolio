@@ -300,9 +300,9 @@ nav.light .burger span {
 
 .photo-wrap {
     position: relative;
-    width: clamp(300px, 50vw, 500px);
+    width: clamp(300px, 90vw, 500px);
     height: clamp(420px, 54vw, 650px);
-    margin-bottom: 0px;
+    margin-bottom: -30px;
 }
 
 .photo-wrap img {
