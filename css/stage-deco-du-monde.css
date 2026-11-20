@@ -211,6 +211,7 @@ nav.light .nav-back-arrow { color: var(--primary);       border-color: rgba(99,0
 .sw-ico.ai  { background: rgba(255,154,0,.15);   color: #ff9a00; }
 .sw-ico.ps  { background: rgba(49,168,255,.15);  color: #31a8ff; }
 .sw-ico.id  { background: rgba(237,104,194,.15); color: #ed68c2; }
+.sw-ico.au  { background: rgba(0,228,187,.15);   color: #00e4bb; }
 .sw-ico.fig { background: rgba(26,188,254,.15);  color: #1abcfe; }
 
 /* ══ DESCRIPTION ══ */
@@ -494,7 +495,7 @@ footer {
 .panel-reels { background: var(--warm); padding: 5rem 5vw; }
 .reels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
 .reel-card { display: flex; flex-direction: column; align-items: center; gap: .9rem; }
-.reel-card video { width: 100%; max-width: 260px; aspect-ratio: 9 / 16; object-fit: contain; background: var(--dark); border: 1px solid rgba(197,67,117,.1); display: block; }
+.reel-card video { width: 100%; max-width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; background: var(--dark); border: 1px solid rgba(197,67,117,.1); display: block; }
 
 /* Carrousels animés (4 slides) */
 .panel-carousels { background: var(--cream); padding: 5rem 5vw; }
@@ -502,7 +503,6 @@ footer {
 .carousel-block:last-child { margin-bottom: 0; }
 .carousel-title { font-family: "Great Vibes", cursive; font-size: clamp(2rem, 3vw, 2.6rem); font-weight: 400; color: var(--primary); margin-bottom: 1.5rem; }
 .carousel-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.carousel-row .reel-card video { aspect-ratio: 4 / 5; max-width: 100%; }
 
 /* Galeries d'images (affiches, publications, photos retouchées IA) */
 .panel-gallery { background: var(--warm); padding: 5rem 5vw; }
@@ -518,8 +518,26 @@ footer {
 .photo-pairs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
 .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; align-items: start; }
 .photo-pair figure { display: flex; flex-direction: column; align-items: center; gap: .7rem; margin: 0; }
-.photo-pair img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; border: 1px solid rgba(197,67,117,.1); }
+.photo-pair img { width: 100%; aspect-ratio: 3 / 4; object-fit: contain; background: var(--white); display: block; border: 1px solid rgba(197,67,117,.1); }
 .photo-pair .compare-label { text-align: center; }
+
+/* Paires avec des photos de formats différents (paysage / portrait) */
+.photo-pairs.single { grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; }
+.photo-pair.natural { align-items: center; }
+.photo-pair.natural img { aspect-ratio: auto; height: auto; object-fit: contain; }
+
+/* Carrousel horizontal (reels Puzzle, slides Lima / Palo) */
+.slider { --gap: 1.5rem; display: flex; align-items: center; gap: 1rem; max-width: 1100px; margin: 0 auto; }
+.slider-track { flex: 1; min-width: 0; display: flex; gap: var(--gap); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.slider-track::-webkit-scrollbar { display: none; }
+.slider .reel-card { flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible)); min-width: 0; scroll-snap-align: start; }
+.slider-btn { flex: 0 0 40px; width: 40px; height: 40px; border: 1px solid rgba(99,0,52,.25); background: transparent; color: var(--primary); font-size: 1.1rem; font-weight: 700; cursor: none; transition: all .25s; }
+.slider-btn:hover:not(:disabled) { background: var(--accent); border-color: var(--accent); color: var(--white); }
+.slider-btn:disabled { opacity: .25; }
+.slider.no-scroll .slider-btn { display: none; }
+.carousel-block .slider { max-width: 1000px; }
+@media (max-width: 900px) { .slider { --visible: 2 !important; } }
+@media (max-width: 600px) { .slider { --visible: 1 !important; } .slider-btn { flex-basis: 34px; width: 34px; height: 34px; } }
 
 /* Vidéos en plein écran : on garde le format d'origine, rien n'est coupé */
 .reel-card video:fullscreen,
@@ -532,7 +550,7 @@ footer {
 .affiche-compare { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; max-width: 1000px; margin: 0 auto; }
 .affiche-side { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 .affiche-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%; align-items: start; }
-.affiche-row img { width: 100%; height: auto; display: block; border: 1px solid rgba(197,67,117,.1); }
+.affiche-row img { width: 100%; aspect-ratio: 3 / 4; object-fit: contain; background: var(--white); display: block; border: 1px solid rgba(197,67,117,.1); }
 
 /* Chiffres clés + logo entreprise */
 .prod-num { font-family: "Great Vibes", cursive; font-size: 2.8rem; color: var(--primary); line-height: 1; }
